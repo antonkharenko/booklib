@@ -1,5 +1,16 @@
 # Booklib #
 
+This is an example of typical web application Java backend. It provides REST API to the clients and it is built using following technology stack:
+
+* Dropwizard
+* Spring
+* MongoDB
+
+## How to run? ##
+
+1. Clean and build your application (app_root_directory> mvn clean install)
+2. java -jar target\booklib-1.0-SNAPSHOT.jar server booklib.yml
+
 ## API Reference ##
 
 ### Account Service ###
@@ -38,7 +49,3 @@ Delete book:
 
     TBD
 
-## How to run? ##
-
-1. Clean and build your application (app_root_directory> mvn clean install)
-2. java -jar target\booklib-1.0-SNAPSHOT.jar server booklib.yml
