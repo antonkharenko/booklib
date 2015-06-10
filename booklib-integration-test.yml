@@ -1,0 +1,11 @@
+# Spring XML context configuration location
+springConfigLocation: classpath*:spring-integration-test/booklib-it-*.xml
+
+server:
+  rootPath: /api/*
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: DEBUG
