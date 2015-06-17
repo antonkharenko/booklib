@@ -1,7 +1,8 @@
 # Booklib #
 
-This is an example of typical web application Java backend. It provides REST API to the clients and it is built using following technology stack:
+Booklib is a reference web application backend. It provides REST API to the clients and it is built using following technology stack:
 
+* Java
 * Dropwizard
 * Spring
 * MongoDB
