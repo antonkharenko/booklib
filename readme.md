@@ -6,11 +6,14 @@ Booklib is a reference web application backend. It provides REST API to the clie
 * Dropwizard
 * Spring
 * MongoDB
+ 
+See also [booklib-client](https://github.com/antonkharenko/booklib-client) repository for frontend application.
 
 ## How to run? ##
 
-1. Clean and build your application (app_root_directory> mvn clean install)
-2. java -jar target\booklib-1.0-SNAPSHOT.jar server booklib.yml
+1. Make sure you have MongoDB running locally and available on the port 27017.
+2. Clean and build your application (app_root_directory> mvn clean install).
+3. Run command: java -jar target\booklib-1.0-SNAPSHOT.jar server booklib.yml
 
 ## API Reference ##
 
