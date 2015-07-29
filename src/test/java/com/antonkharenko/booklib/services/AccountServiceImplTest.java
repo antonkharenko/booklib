@@ -36,7 +36,7 @@ public class AccountServiceImplTest {
 				.username("johndoe").password("qwerty").email("johndoe@example.com").firstName("John").lastName("Doe")
 				.build();
 		final UserResponse expectedResponse = UserResponse.newBuilder()
-				.userId("1")
+				.id("1")
 				.username(request.getUsername())
 				.firstName(request.getFirstName())
 				.lastName(request.getLastName())
@@ -115,7 +115,7 @@ public class AccountServiceImplTest {
 		// Given
 		final LogInRequest request = LogInRequest.newBuilder().login("johndoe").password("qwerty").build();
 		final UserResponse expectedResponse = UserResponse.newBuilder()
-				.userId("1")
+				.id("1")
 				.username(request.getLogin())
 				.firstName("John")
 				.lastName("Doe")

@@ -90,7 +90,7 @@ public class AccountServiceImpl implements AccountService {
 
 	private UserResponse toUserResponse(User user) {
 		return UserResponse.newBuilder()
-				.userId(user.getId())
+				.id(user.getId())
 				.username(user.getUsername())
 				.email(user.getEmail())
 				.firstName(user.getFirstName())

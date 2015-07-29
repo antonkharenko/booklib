@@ -17,7 +17,7 @@ public class UserResponseTest {
 	@Test
 	public void deserializesFromJSON() throws Exception {
 		final UserResponse actualMessage = UserResponse.newBuilder()
-				.userId("1")
+				.id("1")
 				.username("johndoe")
 				.firstName("John")
 				.lastName("Doe")
@@ -33,7 +33,7 @@ public class UserResponseTest {
 	@Test
 	public void serializesToJSON() throws Exception {
 		final UserResponse actualMessage = UserResponse.newBuilder()
-				.userId("1")
+				.id("1")
 				.username("johndoe")
 				.firstName("John")
 				.lastName("Doe")

@@ -1,7 +1,7 @@
 package com.antonkharenko.booklib.resources;
 
-import com.antonkharenko.booklib.domain.User;
 import com.antonkharenko.booklib.api.LogInRequest;
+import com.antonkharenko.booklib.domain.User;
 import com.antonkharenko.booklib.api.SignUpRequest;
 import com.antonkharenko.booklib.services.AccountService;
 import com.codahale.metrics.annotation.Timed;
