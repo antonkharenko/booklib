@@ -18,8 +18,12 @@ import io.dropwizard.auth.basic.BasicCredentials;
 @Component("authenticator")
 public class BooklibAuthenticator implements Authenticator<BasicCredentials, User> {
 
+    private final AuthService authService;
+
     @Autowired
-    private AuthService authService;
+    public BooklibAuthenticator(AuthService authService) {
+        this.authService = authService;
+    }
 
     @Override
     public Optional<User> authenticate(BasicCredentials basicCredentials) throws AuthenticationException {

@@ -119,7 +119,7 @@ public abstract class AbstractServiceIT {
 
     protected static UserResponse registerUser() {
         final SignUpRequest signUpRequest = createSignUpRequest();
-        final UserResponse userResponse = request("/api/account/signup", "POST", signUpRequest, UserResponse.class);
+        final UserResponse userResponse = request("/api/user/signup", "POST", signUpRequest, UserResponse.class);
         assertNotNull(userResponse);
         assertNotNull(userResponse.getApiKey());
         assertEquals(signUpRequest.getUsername(), userResponse.getUsername());

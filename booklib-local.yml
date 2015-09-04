@@ -1,5 +1,6 @@
 # Spring XML context configuration location
 springConfigLocation: classpath*:spring/booklib-*.xml
+authenticationCachePolicy: maximumSize=10000, expireAfterAccess=10m
 
 server:
   rootPath: /api/*

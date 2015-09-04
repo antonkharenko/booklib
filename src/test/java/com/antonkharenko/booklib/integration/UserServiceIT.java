@@ -29,7 +29,7 @@ public class UserServiceIT extends AbstractServiceIT {
         final SignUpRequest signUpRequest = createSignUpRequest();
 
         // When
-        final UserResponse userResponse = request("/api/account/signup", "POST", signUpRequest, UserResponse.class);
+        final UserResponse userResponse = request("/api/user/signup", "POST", signUpRequest, UserResponse.class);
 
         // Then
         assertNotNull(userResponse);
@@ -52,7 +52,7 @@ public class UserServiceIT extends AbstractServiceIT {
                 .build();
 
         // When
-        final UserResponse updatedUserResponse = request("/api/account", "POST", updateUserRequest, UserResponse.class, userResponse.getApiKey());
+        final UserResponse updatedUserResponse = request("/api/user", "POST", updateUserRequest, UserResponse.class, userResponse.getApiKey());
 
         // Then
         assertNotNull(updatedUserResponse);

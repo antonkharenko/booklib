@@ -21,6 +21,7 @@ import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.auth.AuthFactory;
 import io.dropwizard.auth.Authenticator;
+import io.dropwizard.auth.CachingAuthenticator;
 import io.dropwizard.auth.basic.BasicAuthFactory;
 import io.dropwizard.auth.basic.BasicCredentials;
 import io.dropwizard.setup.Bootstrap;
@@ -71,7 +72,7 @@ public class BooklibApplication extends Application<BooklibConfiguration> {
         context = initializeSpringContext(configuration);
         registerHealthChecks(environment);
         registerResources(environment);
-        registerAuthenticator(environment);
+        registerAuthenticator(configuration, environment);
     }
 
     private ApplicationContext initializeSpringContext(BooklibConfiguration configuration) throws BeansException {
@@ -94,10 +95,17 @@ public class BooklibApplication extends Application<BooklibConfiguration> {
         }
     }
 
-    private void registerAuthenticator(Environment environment) {
-        Authenticator<BasicCredentials, User> authenticator = context.getBean("authenticator", Authenticator.class);
-        environment.jersey().register(AuthFactory.binder(
-                new BasicAuthFactory<>(authenticator, "booklib", User.class)));
+    @SuppressWarnings("unchecked")
+    private void registerAuthenticator(BooklibConfiguration configuration, Environment environment) {
+        Authenticator<BasicCredentials, User> authenticator =
+                context.getBean("authenticator", Authenticator.class);
+        CachingAuthenticator<BasicCredentials, User> cachingAuthenticator = new CachingAuthenticator<>(
+                environment.metrics(),
+                authenticator,
+                configuration.getAuthenticationCachePolicy());
+
+        environment.jersey().register(
+                AuthFactory.binder(new BasicAuthFactory<>(cachingAuthenticator, "booklib", User.class)));
     }
 
 }
