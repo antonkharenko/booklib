@@ -18,39 +18,39 @@ See also [booklib-client](https://github.com/antonkharenko/booklib-client) repos
 
 ## API Reference ##
 
-### Account Service ###
+### User Service ###
 
 Sign up:
 
-    curl http://localhost:8080/api/account/signup -X POST -H "Content-Type: application/json" -d '{"username":"johndoe","password":"qwerty","email":"johndoe@example.com", "first_name":"John", "last_name":"Doe"}'
+    curl http://localhost:8080/api/user/signup -X POST -H "Content-Type: application/json" -d '{"username":"johndoe","password":"qwerty","email":"johndoe@example.com", "first_name":"John", "last_name":"Doe"}'
 
 Log in:
 
-    curl http://localhost:8080/api/account/login -X POST -H "Content-Type: application/json" -d '{"login":"johndoe","password":"qwerty"}'
+    curl http://localhost:8080/api/user/login -X POST -H "Content-Type: application/json" -d '{"login":"johndoe","password":"qwerty"}'
 
 Update account:
 
-    curl http://localhost:8080/api/account -X POST -u d9fafb49-990e-4c4d-b512-6c42fe24a269: -H "Content-Type: application/json" -d '{"username":"updated_johndoe","first_name":"updated John", "last_name":"updated Doe"}' 
+    curl http://localhost:8080/api/user -X POST -u e1168ab9-5b1b-45db-9e7a-41036c06824d: -H "Content-Type: application/json" -d '{"username":"updated_johndoe","first_name":"updated John", "last_name":"updated Doe"}' 
 
 ### Book Service ###
 
 Search books:
 
-    curl "http://localhost:8080/api/books/search?q=Effective+Java" -u d9fafb49-990e-4c4d-b512-6c42fe24a269:
+    curl "http://localhost:8080/api/books/search?q=Effective+Java" -u e1168ab9-5b1b-45db-9e7a-41036c06824d: 
     
 Save book:
 
-    TBD
+    curl "http://localhost:8080/api/books" -X POST -H "Content-Type: application/json" -u e1168ab9-5b1b-45db-9e7a-41036c06824d: -d '{"search_book_id":"ka2VUBqHiWkC"}' 
     
 Get book:
 
-    TBD
+    curl "http://localhost:8080/api/books/55e9ed8fd4c63096b460dc13" -u e1168ab9-5b1b-45db-9e7a-41036c06824d:
 
 Get book list:
 
-    TBD
+    curl "http://localhost:8080/api/books" -u e1168ab9-5b1b-45db-9e7a-41036c06824d:
 
 Delete book:
 
-    TBD
+    curl "http://localhost:8080/api/books/55e9ed8fd4c63096b460dc13" -X DELETE -u e1168ab9-5b1b-45db-9e7a-41036c06824d:
 
