@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/antonkharenko/booklib.svg?branch=master)](https://travis-ci.org/antonkharenko/booklib)
+
 # Booklib #
 
 Booklib is a reference web application backend. It provides REST API to the clients and it is built using following technology stack:
