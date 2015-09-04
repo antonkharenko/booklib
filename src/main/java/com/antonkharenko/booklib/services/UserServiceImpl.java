@@ -15,14 +15,14 @@ import java.util.UUID;
  * @author Anton Kharenko
  */
 @Component
-public class AccountServiceImpl implements AccountService {
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
 	private final AuthService authService;
 
 	@Autowired
-	public AccountServiceImpl(
+	public UserServiceImpl(
 			UserRepository userRepository,
 			AuthService authService) {
 		this.userRepository = userRepository;
@@ -59,7 +59,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public UserResponse updateAccount(UpdateAccountRequest request, User user) {
+    public UserResponse updateAccount(UpdateUserRequest request, User user) {
 		if (!user.getUsername().equals(request.getUsername()))
 			checkConflictByUsername(request.getUsername());
 

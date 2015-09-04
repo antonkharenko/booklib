@@ -3,7 +3,7 @@ package com.antonkharenko.booklib.resources;
 import com.antonkharenko.booklib.api.LogInRequest;
 import com.antonkharenko.booklib.api.SignUpRequest;
 import com.antonkharenko.booklib.api.UserResponse;
-import com.antonkharenko.booklib.services.AccountService;
+import com.antonkharenko.booklib.services.UserService;
 import com.antonkharenko.booklib.services.exceptions.ConflictException;
 import com.antonkharenko.booklib.services.exceptions.UnauthorizedException;
 import org.junit.Before;
@@ -20,11 +20,11 @@ import static org.junit.Assert.*;
 /**
  * @author Anton Kharenko
  */
-public class AccountResourceTest {
+public class UserResourceTest {
 
 	@Mock private ExceptionHandler exceptionHandler;
-	@Mock  private AccountService accountService;
-	@InjectMocks private AccountResource accountResource;
+	@Mock  private UserService userService;
+	@InjectMocks private UserResource userResource;
 
 	@Before
 	public void init() {
@@ -47,11 +47,11 @@ public class AccountResourceTest {
 				.build();
 
 		// Stubbing
-		when(accountService.signUp(request))
+		when(userService.signUp(request))
 				.thenReturn(expectedResponse);
 
 		// When
-		Object actualResponse = accountResource.signUp(request);
+		Object actualResponse = userResource.signUp(request);
 
 		// Then
 		assertNotNull(actualResponse);
@@ -69,13 +69,13 @@ public class AccountResourceTest {
 		final Response expectedErrorResponse = Response.status(Response.Status.CONFLICT).build();
 
 		// Stubbing
-		when(accountService.signUp(request))
+		when(userService.signUp(request))
 				.thenThrow(error);
 		when(exceptionHandler.handleException(error))
 				.thenReturn(expectedErrorResponse);
 
 		// When
-		Object actualErrorResponse = accountResource.signUp(request);
+		Object actualErrorResponse = userResource.signUp(request);
 
 		// Then
 		assertNotNull(actualErrorResponse);
@@ -97,11 +97,11 @@ public class AccountResourceTest {
 				.build();
 
 		// Stubbing
-		when(accountService.logIn(request))
+		when(userService.logIn(request))
 				.thenReturn(expectedResponse);
 
 		// When
-		Object actualResponse = accountResource.logIn(request);
+		Object actualResponse = userResource.logIn(request);
 
 		// Then
 		assertNotNull(actualResponse);
@@ -117,13 +117,13 @@ public class AccountResourceTest {
 		final Response expectedErrorResponse = Response.status(Response.Status.UNAUTHORIZED).build();
 
 		// Stubbing
-		when(accountService.logIn(request))
+		when(userService.logIn(request))
 				.thenThrow(error);
 		when(exceptionHandler.handleException(error))
 				.thenReturn(expectedErrorResponse);
 
 		// When
-		Object actualErrorResponse = accountResource.logIn(request);
+		Object actualErrorResponse = userResource.logIn(request);
 
 		// Then
 		assertNotNull(actualErrorResponse);

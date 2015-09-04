@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * @author Anton Kharenko
  */
-public final class UpdateAccountRequest {
+public final class UpdateUserRequest {
 
 	@NotEmpty
 	@Length(min = 3, max = 20)
@@ -27,17 +27,17 @@ public final class UpdateAccountRequest {
 	private String lastName;
 
 	@SuppressWarnings("unused")
-	private UpdateAccountRequest() {
+	private UpdateUserRequest() {
 		// Jackson deserialization
 	}
 
-	private UpdateAccountRequest(Builder builder) {
+	private UpdateUserRequest(Builder builder) {
 		this.username = builder.username;
 		this.firstName = builder.firstName;
 		this.lastName = builder.lastName;
 	}
 
-	public static UpdateAccountRequest.Builder newBuilder() {
+	public static UpdateUserRequest.Builder newBuilder() {
 		return new Builder();
 	}
 
@@ -59,7 +59,7 @@ public final class UpdateAccountRequest {
 			return true;
 		if (o == null || getClass() != o.getClass())
 			return false;
-		UpdateAccountRequest that = (UpdateAccountRequest) o;
+		UpdateUserRequest that = (UpdateUserRequest) o;
 		return Objects.equals(username, that.username) &&
 				Objects.equals(firstName, that.firstName) &&
 				Objects.equals(lastName, that.lastName);
@@ -103,8 +103,8 @@ public final class UpdateAccountRequest {
 			return this;
 		}
 
-		public UpdateAccountRequest build() {
-			return new UpdateAccountRequest(this);
+		public UpdateUserRequest build() {
+			return new UpdateUserRequest(this);
 		}
 	}
 }

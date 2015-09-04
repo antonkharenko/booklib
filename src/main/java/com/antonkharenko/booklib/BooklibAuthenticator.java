@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @author Anton Kharenko
  */
 @Component("authenticator")
-public class ApiKeyAuthenticator implements Authenticator<BasicCredentials, User> {
+public class BooklibAuthenticator implements Authenticator<BasicCredentials, User> {
 
 	@Autowired
 	private AuthService authService;

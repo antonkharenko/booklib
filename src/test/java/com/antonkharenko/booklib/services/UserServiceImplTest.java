@@ -16,17 +16,17 @@ import static org.mockito.Mockito.*;
 /**
  * @author Anton Kharenko
  */
-public class AccountServiceImplTest {
+public class UserServiceImplTest {
 
 	@Mock private AuthService authService;
 	@Mock private UserRepository userRepository;
 
-	private AccountServiceImpl accountService;
+	private UserServiceImpl accountService;
 
 	@Before
 	public void init() {
 		MockitoAnnotations.initMocks(this);
-		accountService = new AccountServiceImpl(userRepository, authService);
+		accountService = new UserServiceImpl(userRepository, authService);
 	}
 
 	@Test

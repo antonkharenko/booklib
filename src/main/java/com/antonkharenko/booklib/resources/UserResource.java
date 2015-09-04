@@ -3,9 +3,9 @@ package com.antonkharenko.booklib.resources;
 import com.antonkharenko.booklib.api.LogInRequest;
 import com.antonkharenko.booklib.domain.User;
 import com.antonkharenko.booklib.api.SignUpRequest;
-import com.antonkharenko.booklib.services.AccountService;
+import com.antonkharenko.booklib.services.UserService;
 import com.codahale.metrics.annotation.Timed;
-import com.antonkharenko.booklib.api.UpdateAccountRequest;
+import com.antonkharenko.booklib.api.UpdateUserRequest;
 import io.dropwizard.auth.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,18 +18,18 @@ import javax.ws.rs.core.Response;
 /**
  * @author Anton Kharenko
  */
-@Path("/account")
+@Path("/user")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Component
-public class AccountResource {
+public class UserResource {
 
-    private final AccountService accountService;
+    private final UserService userService;
     private final ExceptionHandler exceptionHandler;
 
     @Autowired
-    public AccountResource(AccountService accountService, ExceptionHandler exceptionHandler) {
-        this.accountService = accountService;
+    public UserResource(UserService userService, ExceptionHandler exceptionHandler) {
+        this.userService = userService;
         this.exceptionHandler = exceptionHandler;
     }
 
@@ -38,7 +38,7 @@ public class AccountResource {
     @Timed
     public Object signUp(@Valid SignUpRequest request) {
         try {
-            return accountService.signUp(request);
+            return userService.signUp(request);
         } catch (Exception e) {
 			return exceptionHandler.handleException(e);
         }
@@ -49,7 +49,7 @@ public class AccountResource {
     @Timed
     public Object logIn(@Valid LogInRequest request) {
         try {
-            return accountService.logIn(request);
+            return userService.logIn(request);
         } catch (Exception e) {
 			return exceptionHandler.handleException(e);
         }
@@ -65,10 +65,10 @@ public class AccountResource {
     @POST
     @Timed
     public Object updateAccount(
-            @Valid UpdateAccountRequest request,
+            @Valid UpdateUserRequest request,
             @Auth User user) {
         try {
-            return accountService.updateAccount(request, user);
+            return userService.updateAccount(request, user);
         } catch (Exception e) {
             return exceptionHandler.handleException(e);
         }
