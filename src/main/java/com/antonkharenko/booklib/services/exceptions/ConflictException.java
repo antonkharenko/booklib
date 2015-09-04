@@ -5,18 +5,18 @@ package com.antonkharenko.booklib.services.exceptions;
  */
 public class ConflictException extends ServiceException {
 
-	private final static int CODE = 409;
+    private final static int CODE = 409;
 
-	public ConflictException(String statusMessage) {
-		super(CODE, statusMessage);
-	}
+    public ConflictException(String statusMessage) {
+        super(CODE, statusMessage);
+    }
 
-	public ConflictException(Throwable cause) {
-		super(CODE, cause);
-	}
+    public ConflictException(Throwable cause) {
+        super(CODE, cause);
+    }
 
-	public ConflictException(String statusMessage, Throwable cause) {
-		super(CODE, statusMessage, cause);
-	}
+    public ConflictException(String statusMessage, Throwable cause) {
+        super(CODE, statusMessage, cause);
+    }
 
 }

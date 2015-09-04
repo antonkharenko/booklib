@@ -1,7 +1,9 @@
 package com.antonkharenko.booklib.repository;
 
 import com.mongodb.Mongo;
+
 import de.flapdoodle.embed.mongo.MongodProcess;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

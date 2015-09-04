@@ -1,10 +1,12 @@
 package com.antonkharenko.booklib.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.dropwizard.jackson.Jackson;
+
 import org.junit.Test;
 
-import static io.dropwizard.testing.FixtureHelpers.*;
+import io.dropwizard.jackson.Jackson;
+
+import static io.dropwizard.testing.FixtureHelpers.fixture;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -12,30 +14,30 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class SignUpRequestTest {
 
-	private static final ObjectMapper MAPPER = Jackson.newObjectMapper();
+    private static final ObjectMapper MAPPER = Jackson.newObjectMapper();
 
-	@Test
-	public void deserializesFromJSON() throws Exception {
-		final SignUpRequest actualMessage = SignUpRequest.newBuilder()
-				.username("johndoe").password("qwerty").email("johndoe@example.com").firstName("John").lastName("Doe")
-				.build();
+    @Test
+    public void deserializesFromJSON() throws Exception {
+        final SignUpRequest actualMessage = SignUpRequest.newBuilder()
+                .username("johndoe").password("qwerty").email("johndoe@example.com").firstName("John").lastName("Doe")
+                .build();
 
-		final SignUpRequest expectedMessage = MAPPER.readValue(fixture("fixtures/SignUpRequest.json"), SignUpRequest.class);
+        final SignUpRequest expectedMessage = MAPPER.readValue(fixture("fixtures/SignUpRequest.json"), SignUpRequest.class);
 
-		assertThat(actualMessage).isEqualTo(expectedMessage);
-	}
+        assertThat(actualMessage).isEqualTo(expectedMessage);
+    }
 
-	@Test
-	public void serializesToJSON() throws Exception {
-		final SignUpRequest actualMessage = SignUpRequest.newBuilder()
-				.username("johndoe").password("qwerty").email("johndoe@example.com").firstName("John").lastName("Doe")
-				.build();
-		final String actualJson = MAPPER.writeValueAsString(actualMessage);
+    @Test
+    public void serializesToJSON() throws Exception {
+        final SignUpRequest actualMessage = SignUpRequest.newBuilder()
+                .username("johndoe").password("qwerty").email("johndoe@example.com").firstName("John").lastName("Doe")
+                .build();
+        final String actualJson = MAPPER.writeValueAsString(actualMessage);
 
-		final SignUpRequest expectedMessage = MAPPER.readValue(fixture("fixtures/SignUpRequest.json"), SignUpRequest.class);
-		final String normalizedExpectedJson = MAPPER.writeValueAsString(expectedMessage);
+        final SignUpRequest expectedMessage = MAPPER.readValue(fixture("fixtures/SignUpRequest.json"), SignUpRequest.class);
+        final String normalizedExpectedJson = MAPPER.writeValueAsString(expectedMessage);
 
-		assertThat(actualJson).isEqualTo(normalizedExpectedJson);
-	}
+        assertThat(actualJson).isEqualTo(normalizedExpectedJson);
+    }
 
 }

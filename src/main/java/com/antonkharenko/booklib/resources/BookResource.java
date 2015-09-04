@@ -3,14 +3,23 @@ package com.antonkharenko.booklib.resources;
 import com.antonkharenko.booklib.api.SaveBookRequest;
 import com.antonkharenko.booklib.domain.User;
 import com.antonkharenko.booklib.services.BookService;
-import io.dropwizard.auth.Auth;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.validation.Valid;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import io.dropwizard.auth.Auth;
 
 /**
  * @author Anton Kharenko
@@ -21,70 +30,70 @@ import javax.ws.rs.core.Response;
 @Component
 public class BookResource {
 
-	private final BookService bookService;
-	private final ExceptionHandler exceptionHandler;
+    private final BookService bookService;
+    private final ExceptionHandler exceptionHandler;
 
-	@Autowired
-	public BookResource(BookService bookService, ExceptionHandler exceptionHandler) {
-		this.bookService = bookService;
-		this.exceptionHandler = exceptionHandler;
-	}
+    @Autowired
+    public BookResource(BookService bookService, ExceptionHandler exceptionHandler) {
+        this.bookService = bookService;
+        this.exceptionHandler = exceptionHandler;
+    }
 
-	@GET
-	@Path("/search")
-	public Object searchBooks(
-			@QueryParam("q") String query,
-			@Auth User user) {
-		try {
-			return bookService.searchBooks(query, user);
-		} catch (Exception e) {
-			return exceptionHandler.handleException(e);
-		}
-	}
+    @GET
+    @Path("/search")
+    public Object searchBooks(
+            @QueryParam("q") String query,
+            @Auth User user) {
+        try {
+            return bookService.searchBooks(query, user);
+        } catch (Exception e) {
+            return exceptionHandler.handleException(e);
+        }
+    }
 
-	@POST
-	public Object saveBook(
-			@Valid SaveBookRequest request,
-			@Auth User user) {
-		try {
-			return bookService.saveBook(request, user);
-		} catch (Exception e) {
-			return exceptionHandler.handleException(e);
-		}
-	}
+    @POST
+    public Object saveBook(
+            @Valid SaveBookRequest request,
+            @Auth User user) {
+        try {
+            return bookService.saveBook(request, user);
+        } catch (Exception e) {
+            return exceptionHandler.handleException(e);
+        }
+    }
 
-	@DELETE
-	@Path("/{book_id}")
-	public Object deleteBook(
-			@PathParam("book_id") String bookId,
-			@Auth User user) {
-		try {
-			bookService.deleteBook(bookId, user);
-			return Response.noContent().build();
-		} catch (Exception e) {
-			return exceptionHandler.handleException(e);
-		}
-	}
+    @DELETE
+    @Path("/{book_id}")
+    public Object deleteBook(
+            @PathParam("book_id") String bookId,
+            @Auth User user) {
+        try {
+            bookService.deleteBook(bookId, user);
+            return Response.noContent().build();
+        } catch (Exception e) {
+            return exceptionHandler.handleException(e);
+        }
+    }
 
-	@GET
-	public Object getBookList(@Auth User user) {
-		try {
-			return bookService.getBookList(user);
-		} catch (Exception e) {
-			return exceptionHandler.handleException(e);
-		}
-	}
+    @GET
+    public Object getBookList(@Auth User user) {
+        try {
+            return bookService.getBookList(user);
+        } catch (Exception e) {
+            return exceptionHandler.handleException(e);
+        }
+    }
 
-	@GET
-	@Path("/{book_id}")
-	public Object getBook(
-			@PathParam("book_id") String bookId,
-			@Auth User user) {
-		try {
-			return bookService.getBook(bookId, user);
-		} catch (Exception e) {
-			return exceptionHandler.handleException(e);
-		}
-	}
+    @GET
+    @Path("/{book_id}")
+    public Object getBook(
+            @PathParam("book_id") String bookId,
+            @Auth User user) {
+        try {
+            return bookService.getBook(bookId, user);
+        } catch (Exception e) {
+            return exceptionHandler.handleException(e);
+        }
+    }
 
 }

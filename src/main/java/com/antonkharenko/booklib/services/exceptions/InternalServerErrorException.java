@@ -5,18 +5,18 @@ package com.antonkharenko.booklib.services.exceptions;
  */
 public class InternalServerErrorException extends ServiceException {
 
-	private final static int CODE = 500;
+    private final static int CODE = 500;
 
-	public InternalServerErrorException(String statusMessage) {
-		super(CODE, statusMessage);
-	}
+    public InternalServerErrorException(String statusMessage) {
+        super(CODE, statusMessage);
+    }
 
-	public InternalServerErrorException(Throwable cause) {
-		super(CODE, cause);
-	}
+    public InternalServerErrorException(Throwable cause) {
+        super(CODE, cause);
+    }
 
-	public InternalServerErrorException(String statusMessage, Throwable cause) {
-		super(CODE, statusMessage, cause);
-	}
+    public InternalServerErrorException(String statusMessage, Throwable cause) {
+        super(CODE, statusMessage, cause);
+    }
 
 }

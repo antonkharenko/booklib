@@ -2,6 +2,7 @@ package com.antonkharenko.booklib.api;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import org.immutables.value.Value;
 
 /**
@@ -13,8 +14,8 @@ import org.immutables.value.Value;
 @JsonDeserialize(as = LogInRequest.class)
 public interface ILogInRequest {
 
-	String getLogin();
+    String getLogin();
 
-	String getPassword();
+    String getPassword();
 
 }

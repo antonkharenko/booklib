@@ -1,6 +1,7 @@
 package com.antonkharenko.booklib.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.Objects;
@@ -10,64 +11,64 @@ import java.util.Objects;
  */
 public class SaveBookRequest {
 
-	@NotEmpty
-	@JsonProperty("search_book_id")
-	private String searchBookId;
+    @NotEmpty
+    @JsonProperty("search_book_id")
+    private String searchBookId;
 
-	@SuppressWarnings("unused")
-	private SaveBookRequest() {
-		// Jackson deserialization
-	}
+    @SuppressWarnings("unused")
+    private SaveBookRequest() {
+        // Jackson deserialization
+    }
 
-	private SaveBookRequest(Builder builder) {
-		this.searchBookId = builder.searchBookId;
-	}
+    private SaveBookRequest(Builder builder) {
+        this.searchBookId = builder.searchBookId;
+    }
 
-	public static Builder newBuilder() {
-		return new Builder();
-	}
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 
-	public String getSearchBookId() {
-		return searchBookId;
-	}
+    public String getSearchBookId() {
+        return searchBookId;
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		SaveBookRequest that = (SaveBookRequest) o;
-		return Objects.equals(searchBookId, that.searchBookId);
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        SaveBookRequest that = (SaveBookRequest) o;
+        return Objects.equals(searchBookId, that.searchBookId);
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(searchBookId);
-	}
+    @Override
+    public int hashCode() {
+        return Objects.hash(searchBookId);
+    }
 
-	@Override
-	public String toString() {
-		return "SaveBookRequest{" +
-				"searchBookId='" + searchBookId + '\'' +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "SaveBookRequest{" +
+                "searchBookId='" + searchBookId + '\'' +
+                '}';
+    }
 
-	public static final class Builder {
+    public static final class Builder {
 
-		private String searchBookId;
+        private String searchBookId;
 
-		private Builder() {
-		}
+        private Builder() {
+        }
 
-		public Builder searchBookId(String searchBookId) {
-			this.searchBookId = searchBookId;
-			return this;
-		}
+        public Builder searchBookId(String searchBookId) {
+            this.searchBookId = searchBookId;
+            return this;
+        }
 
-		public SaveBookRequest build() {
-			return new SaveBookRequest(this);
-		}
-	}
+        public SaveBookRequest build() {
+            return new SaveBookRequest(this);
+        }
+    }
 
 }

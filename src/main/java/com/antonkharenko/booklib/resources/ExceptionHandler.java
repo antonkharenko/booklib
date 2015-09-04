@@ -7,6 +7,6 @@ import javax.ws.rs.core.Response;
  */
 public interface ExceptionHandler {
 
-	Response handleException(Exception exception);
+    Response handleException(Exception exception);
 
 }

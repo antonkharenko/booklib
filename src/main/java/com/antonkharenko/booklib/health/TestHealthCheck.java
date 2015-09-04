@@ -1,6 +1,7 @@
 package com.antonkharenko.booklib.health;
 
 import com.codahale.metrics.health.HealthCheck;
+
 import org.springframework.stereotype.Component;
 
 @Component

@@ -5,18 +5,18 @@ package com.antonkharenko.booklib.services.exceptions;
  */
 public class UnauthorizedException extends ServiceException {
 
-	private final static int CODE = 401;
+    private final static int CODE = 401;
 
-	public UnauthorizedException(String statusMessage) {
-		super(CODE, statusMessage);
-	}
+    public UnauthorizedException(String statusMessage) {
+        super(CODE, statusMessage);
+    }
 
-	public UnauthorizedException(Throwable cause) {
-		super(CODE, cause);
-	}
+    public UnauthorizedException(Throwable cause) {
+        super(CODE, cause);
+    }
 
-	public UnauthorizedException(String statusMessage, Throwable cause) {
-		super(CODE, statusMessage, cause);
-	}
+    public UnauthorizedException(String statusMessage, Throwable cause) {
+        super(CODE, statusMessage, cause);
+    }
 
 }

@@ -1,45 +1,47 @@
 package com.antonkharenko.booklib.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.Pattern;
 import java.util.Objects;
+
+import javax.validation.constraints.Pattern;
 
 /**
  * @author Anton Kharenko
  */
 public final class UpdateUserRequest {
 
-	@NotEmpty
-	@Length(min = 3, max = 20)
-	@Pattern(regexp = "^[a-zA-Z0-9\\-_\\.]{3,20}$", message = "must contain only numbers and letters")
-	@JsonProperty("username")
-	private String username;
+    @NotEmpty
+    @Length(min = 3, max = 20)
+    @Pattern(regexp = "^[a-zA-Z0-9\\-_\\.]{3,20}$", message = "must contain only numbers and letters")
+    @JsonProperty("username")
+    private String username;
 
-	@NotEmpty
-	@JsonProperty("first_name")
-	private String firstName;
+    @NotEmpty
+    @JsonProperty("first_name")
+    private String firstName;
 
-	@NotEmpty
-	@JsonProperty("last_name")
-	private String lastName;
+    @NotEmpty
+    @JsonProperty("last_name")
+    private String lastName;
 
-	@SuppressWarnings("unused")
-	private UpdateUserRequest() {
-		// Jackson deserialization
-	}
+    @SuppressWarnings("unused")
+    private UpdateUserRequest() {
+        // Jackson deserialization
+    }
 
-	private UpdateUserRequest(Builder builder) {
-		this.username = builder.username;
-		this.firstName = builder.firstName;
-		this.lastName = builder.lastName;
-	}
+    private UpdateUserRequest(Builder builder) {
+        this.username = builder.username;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+    }
 
-	public static UpdateUserRequest.Builder newBuilder() {
-		return new Builder();
-	}
+    public static UpdateUserRequest.Builder newBuilder() {
+        return new Builder();
+    }
 
     public String getUsername() {
         return username;
@@ -53,58 +55,58 @@ public final class UpdateUserRequest {
         return lastName;
     }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		UpdateUserRequest that = (UpdateUserRequest) o;
-		return Objects.equals(username, that.username) &&
-				Objects.equals(firstName, that.firstName) &&
-				Objects.equals(lastName, that.lastName);
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        UpdateUserRequest that = (UpdateUserRequest) o;
+        return Objects.equals(username, that.username) &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName);
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(username, firstName, lastName);
-	}
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, firstName, lastName);
+    }
 
-	@Override
-	public String toString() {
-		return "UpdateAccountRequest{" +
-				"username='" + username + '\'' +
-				", firstName='" + firstName + '\'' +
-				", lastName='" + lastName + '\'' +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "UpdateAccountRequest{" +
+                "username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 
-	public static final class Builder {
+    public static final class Builder {
 
-		private String username;
-		private String firstName;
-		private String lastName;
+        private String username;
+        private String firstName;
+        private String lastName;
 
-		private Builder() {
-		}
+        private Builder() {
+        }
 
-		public Builder username(String username) {
-			this.username = username;
-			return this;
-		}
+        public Builder username(String username) {
+            this.username = username;
+            return this;
+        }
 
-		public Builder firstName(String firstName) {
-			this.firstName = firstName;
-			return this;
-		}
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
 
-		public Builder lastName(String lastName) {
-			this.lastName = lastName;
-			return this;
-		}
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
 
-		public UpdateUserRequest build() {
-			return new UpdateUserRequest(this);
-		}
-	}
+        public UpdateUserRequest build() {
+            return new UpdateUserRequest(this);
+        }
+    }
 }

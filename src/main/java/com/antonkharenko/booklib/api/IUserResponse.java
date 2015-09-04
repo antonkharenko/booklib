@@ -3,6 +3,7 @@ package com.antonkharenko.booklib.api;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import org.immutables.value.Value;
 
 /**
@@ -14,19 +15,19 @@ import org.immutables.value.Value;
 @JsonDeserialize(as = UserResponse.class)
 public interface IUserResponse {
 
-	String getId();
+    String getId();
 
-	String getUsername();
+    String getUsername();
 
-	String getEmail();
+    String getEmail();
 
-	@JsonProperty("first_name")
-	String getFirstName();
+    @JsonProperty("first_name")
+    String getFirstName();
 
-	@JsonProperty("last_name")
-	String getLastName();
+    @JsonProperty("last_name")
+    String getLastName();
 
-	@JsonProperty("api_key")
-	String getApiKey();
+    @JsonProperty("api_key")
+    String getApiKey();
 
 }

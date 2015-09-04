@@ -10,49 +10,53 @@ import java.util.List;
  *
  * @author Anton Kharenko
  * @see <a href="https://developers.google.com/books/docs/v1/reference/volumes/list">
- *     https://developers.google.com/books/docs/v1/reference/volumes/list</a>
+ * https://developers.google.com/books/docs/v1/reference/volumes/list</a>
  */
 @SuppressWarnings("unused")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class VolumeList {
 
-	@JsonProperty
-	private String kind;
+    @JsonProperty
+    private String kind;
 
-	@JsonProperty
-	private Integer totalItems;
+    @JsonProperty
+    private Integer totalItems;
 
-	@JsonProperty
-	private List<Volume> items;
+    @JsonProperty
+    private List<Volume> items;
 
-	private VolumeList() {
-		// Jackson deserialization
-	}
+    private VolumeList() {
+        // Jackson deserialization
+    }
 
-	/** Resource type. */
-	public String getKind() {
-		return kind;
-	}
+    /**
+     * Resource type.
+     */
+    public String getKind() {
+        return kind;
+    }
 
-	/**
-	 * Total number of volumes found. This might be greater than the number of volumes returned in this
-	 * response if results have been paginated.
-	 */
-	public Integer getTotalItems() {
-		return totalItems;
-	}
+    /**
+     * Total number of volumes found. This might be greater than the number of volumes returned in
+     * this response if results have been paginated.
+     */
+    public Integer getTotalItems() {
+        return totalItems;
+    }
 
-	/** A list of volumes. */
-	public List<Volume> getItems() {
-		return items;
-	}
+    /**
+     * A list of volumes.
+     */
+    public List<Volume> getItems() {
+        return items;
+    }
 
-	@Override
-	public String toString() {
-		return "VolumeList{" +
-				"kind='" + kind + '\'' +
-				", totalItems=" + totalItems +
-				", items=" + items +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "VolumeList{" +
+                "kind='" + kind + '\'' +
+                ", totalItems=" + totalItems +
+                ", items=" + items +
+                '}';
+    }
 }

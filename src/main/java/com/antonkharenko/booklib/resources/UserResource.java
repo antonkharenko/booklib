@@ -1,19 +1,24 @@
 package com.antonkharenko.booklib.resources;
 
 import com.antonkharenko.booklib.api.LogInRequest;
-import com.antonkharenko.booklib.domain.User;
 import com.antonkharenko.booklib.api.SignUpRequest;
+import com.antonkharenko.booklib.api.UpdateUserRequest;
+import com.antonkharenko.booklib.domain.User;
 import com.antonkharenko.booklib.services.UserService;
 import com.codahale.metrics.annotation.Timed;
-import com.antonkharenko.booklib.api.UpdateUserRequest;
-import io.dropwizard.auth.Auth;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.validation.Valid;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import io.dropwizard.auth.Auth;
 
 /**
  * @author Anton Kharenko
@@ -40,7 +45,7 @@ public class UserResource {
         try {
             return userService.signUp(request);
         } catch (Exception e) {
-			return exceptionHandler.handleException(e);
+            return exceptionHandler.handleException(e);
         }
     }
 
@@ -51,7 +56,7 @@ public class UserResource {
         try {
             return userService.logIn(request);
         } catch (Exception e) {
-			return exceptionHandler.handleException(e);
+            return exceptionHandler.handleException(e);
         }
     }
 

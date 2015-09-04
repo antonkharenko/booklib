@@ -15,7 +15,7 @@ public class EmbedMongoFactory {
 
     private static MongodProcess mongoProcess;
     private static MongodExecutable mongoExecutable;
-    
+
     public static MongodProcess getMongoProcess(int port) throws IOException {
         MongodStarter starter = MongodStarter.getDefaultInstance();
 
@@ -29,11 +29,11 @@ public class EmbedMongoFactory {
 
         return mongoProcess;
     }
-    
-    public static void stopMongoProcess(){
-    	if (mongoProcess != null)
-    		mongoProcess.stop();
-    	if (mongoExecutable != null)
-    		mongoExecutable.stop();
+
+    public static void stopMongoProcess() {
+        if (mongoProcess != null)
+            mongoProcess.stop();
+        if (mongoExecutable != null)
+            mongoExecutable.stop();
     }
 }

@@ -9,19 +9,20 @@ public class User {
     @Id
     private String id;
 
-	private String username;
+    private String username;
 
-	private String password;
+    private String password;
 
-	private String email;
+    private String email;
 
-	private String firstName;
+    private String firstName;
 
-	private String lastName;
+    private String lastName;
 
-	private String apiKey;
+    private String apiKey;
 
-	public User() {}
+    public User() {
+    }
 
     public User(String username, String password, String email, String firstName, String lastName, String apiKey) {
         this.username = username;
@@ -29,16 +30,16 @@ public class User {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-		this.apiKey = apiKey;
+        this.apiKey = apiKey;
     }
 
     public String getId() {
         return id;
     }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -80,24 +81,24 @@ public class User {
         this.password = password;
     }
 
-	public String getApiKey() {
-		return apiKey;
-	}
+    public String getApiKey() {
+        return apiKey;
+    }
 
-	public void setApiKey(String apiKey) {
-		this.apiKey = apiKey;
-	}
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"id='" + id + '\'' +
-				", username='" + username + '\'' +
-				", password='" + password + '\'' +
-				", email='" + email + '\'' +
-				", firstName='" + firstName + '\'' +
-				", lastName='" + lastName + '\'' +
-				", apiKey='" + apiKey + '\'' +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", apiKey='" + apiKey + '\'' +
+                '}';
+    }
 }
